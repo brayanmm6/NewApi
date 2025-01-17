@@ -12,8 +12,9 @@ app.get("/", (req, res) => {
 
 app.get("/show", async (req, res) => {
     const client = await db.show()
-    res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500")
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173")
+    // res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500")
+    // res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173")
+    res.setHeader("Access-Control-Allow-Origin", "*")
     res.status(200).json(client)
 })
 
