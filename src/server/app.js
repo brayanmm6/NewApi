@@ -7,11 +7,11 @@ const app = express()
 
 app.use(express.json())
 
+app.use(ShowTasksRoute)
+
 app.get("/", (req, res) => {
     res.status(200).send("Home page")
 })
-
-app.use(ShowTasksRoute)
 
 // app.get("/show", async (req, res) => {
 //     const client = await db.show()
