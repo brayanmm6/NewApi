@@ -1,13 +1,13 @@
 const express = require("express")
 const db = require("../database")
 require('dotenv').config()
-const ShowTasksRoute = require("../routes/showTasks")
+const showTasksRoute = require("../routes/showTasks")
 
 const app = express()
 
 app.use(express.json())
 
-app.use("/show", ShowTasksRoute)
+app.use(showTasksRoute)
 
 app.get("/", (req, res) => {
     res.status(200).send("Home page")

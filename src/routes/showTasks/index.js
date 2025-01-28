@@ -1,9 +1,9 @@
 const express = require('express')
 const db = require('../../database')
 
-const ShowTasksRoute = express.Router()
+const showTasksRoute = express.Router()
 
-ShowTasksRoute.get(async (req, res) => {
+showTasksRoute.get("/show", async (req, res) => {
     try {
         const client = await db.show()
         res.setHeader("Access-Control-Allow-Origin", "*")
@@ -13,4 +13,4 @@ ShowTasksRoute.get(async (req, res) => {
     }
 })
 
-module.exports = { ShowTasksRoute }
+module.exports = showTasksRoute
