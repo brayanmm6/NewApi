@@ -7,7 +7,7 @@ const app = express()
 
 app.use(express.json())
 
-app.use(ShowTasksRoute)
+app.use("/show", ShowTasksRoute)
 
 app.get("/", (req, res) => {
     res.status(200).send("Home page")
