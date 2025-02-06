@@ -31,7 +31,7 @@ const show = async () => {
 
 const newTask = async (name, description, image) => {
     const client = await connect()
-    const query = await client.query("INSERT INTO genres (name, description, image) values ($1, $2, $3)", (name, description, image))
+    const query = await client.query("INSERT INTO genres (name, description, image) values ($1, $2, $3)", [name, description, image])
     const res = await client.query("SELECT * FROM genres")
     return res.rows
 }
