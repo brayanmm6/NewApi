@@ -1,6 +1,10 @@
 require("dotenv").config()
 
 const connect = async () => {
+    if ( global.connection ) {
+        return await global.connection.connect()
+    }
+
     const { Pool }  = require("pg")
 
     const pool = new Pool ({
@@ -18,6 +22,8 @@ const connect = async () => {
     console.log(res.rows)
 
     client.release()
+
+    global.connection = pool
 
     return await pool.connect()
 }   
