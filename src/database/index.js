@@ -8,7 +8,7 @@ const connect = async () => {
     const { Pool }  = require("pg")
 
     const pool = new Pool ({
-        connectionString: "postgres://avnadmin:AVNS_N1i51qPtir3Fjbx8VE6@pg-219ee184-martinsbrayan514-01e0.e.aivencloud.com:17016/defaultdb",
+        connectionString: process.env.CONNECTIONSTRING,
 
         ssl: {
             rejectUnauthorized: false
@@ -26,7 +26,7 @@ const connect = async () => {
     global.connection = pool
 
     return await pool.connect()
-}   
+} 
 
 const show = async () => {
     const client = await connect()
