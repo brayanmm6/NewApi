@@ -2,6 +2,7 @@ const express = require("express")
 require('dotenv').config()
 const showTasksRoute = require("../routes/showTasks")
 const newTaskRoute = require("../routes/newTask")
+const db = require("../database")
 
 const app = express()
 
@@ -19,9 +20,10 @@ app.use(showTasksRoute)
 
 app.use(newTaskRoute)
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
-    res.status(200).send("Home page")
+    const infos = await db.show()
+    res.status(200).json(infos)
 })
 
 app.listen(process.env.PORT, (err) => {
