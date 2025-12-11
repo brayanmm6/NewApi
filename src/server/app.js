@@ -12,18 +12,14 @@ app.use(cors({
     origin: '*', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
-}));
+}));-
 
 app.use(express.json())
 
-app.use(showTasksRoute)
-
-app.use(newTaskRoute)
-
 app.get("/", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
-    const infos = await db.show()
-    res.status(200).json(infos)
+    const infos = await db.connect()
+    res.status(200).send(infos)
 })
 
 app.listen(process.env.PORT, (err) => {
