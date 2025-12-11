@@ -40,4 +40,4 @@ const showwNotes = async () => {
     return res.rows
 }
 
-module.exports = {connect, newNote} 
+module.exports = {connect, newNote, showwNotes} 

@@ -18,7 +18,7 @@ app.use(express.json())
 
 app.get("/", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
-    const infos = await db.connect()
+    const infos = await db.showwNotes()
     res.status(200).send(infos)
 })
 
