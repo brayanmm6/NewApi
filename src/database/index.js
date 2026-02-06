@@ -30,7 +30,7 @@ const connect = async () => {
 
 const createDb = async () => {
     const client = await connect()
-    const res = await client.query("create table notes (id serial primary key, title varchar(120), content text, image text, pinned booelean not null default false, save_time time, save_date, date)")
+    const res = await client.query("create table notes (id serial primary key, title varchar(120), content text, image text, pinned boolean not null default false, save_time time, save_date date)")
     console.log("sucesso")
     return "success"
 }
