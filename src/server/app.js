@@ -23,7 +23,7 @@ app.use(newNoteRoute)
 app.get("/", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
     const infos = await db.showwNotes()
-    if (infos) {
+    if (infos.length) {
         res.status(200).send(infos)
     } else {
          await db.createDb()
