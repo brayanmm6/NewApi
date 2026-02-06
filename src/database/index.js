@@ -42,8 +42,24 @@ const newNote = async (title, content) => {
 
 const showwNotes = async () => {
     const client = await connect()
-    const res = await client.query("Select * from notes")
-    return res.rows
+    // const res = await client.query("Select * from notes") ? "nada" : "tudo"
+    // if(res.rows){
+    //     console.log("tem algo aqui")
+    // } else {
+    //     console.log("nada aqui")
+    // }
+    // return "teste"
+
+    try {
+        const res = await client.query("Select * from notes")
+        return res.rows
+    } catch (err) {
+        await createDb()
+        const res = await client.query("Select * from notes")
+        return res.rows
+    }
 }
+
+showwNotes()
 
 module.exports = {connect, newNote, showwNotes, createDb} 
