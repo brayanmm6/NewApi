@@ -28,6 +28,12 @@ const connect = async () => {
     return await pool.connect()
 } 
 
+const createDb = async () => {
+    const client = await connect()
+    const res = client.query("create table notes (id serial primary key, title varchar(120), content text, image text, pinned booelean default false, time time, date, date)")
+    return "success"
+}
+
 const newNote = async (title, content) => {
     const client = await connect()
     const res = await client.query("insert into notes (title, content) values ($1, $2)", [title, content])
@@ -40,4 +46,4 @@ const showwNotes = async () => {
     return res.rows
 }
 
-module.exports = {connect, newNote, showwNotes} 
+module.exports = {connect, newNote, showwNotes, createDb} 
