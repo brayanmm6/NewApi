@@ -32,12 +32,12 @@ app.get("/", async (req, res) => {
     return infos
 })
 
-// app.listen(process.env.PORT, (err) => {
-//     if(err) throw err
-//     console.log("Server rodando em: http://localhost:3000")
-// })
-
-app.listen(3000, error => {
-    if(error) throw error
-    console.log("server rodando em http://localhost:3000")
+app.listen(process.env.PORT, (err) => {
+    if(err) throw err
+    console.log("Server rodando em: http://localhost:3000")
 })
+
+// app.listen(3000, error => {
+//     if(error) throw error
+//     console.log("server rodando em http://localhost:3000")
+// })
