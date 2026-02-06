@@ -27,9 +27,10 @@ app.get("/", async (req, res) => {
         res.status(200).send(infos)
     } else {
          await db.createDb()
+         const newiInfos = await db.showwNotes()
+         res.status(200).send(newiInfos)
+         return newiInfos
     }
-
-    return infos
 })
 
 app.listen(process.env.PORT, (err) => {
