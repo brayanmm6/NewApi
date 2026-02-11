@@ -1,9 +1,9 @@
-const exress = require("express")
+const express = require("express")
 const db = require("../../database")
 
-const newTaskRoute = exress.Router()
+const newTaskRoute = express.Router()
 
-newTaskRoute.use(exress.json())
+newTaskRoute.use(express.json())
 
 newTaskRoute.post("/tasks/new", async (req, res) => {
     res.header({"Access-Control-Allow-Origin": "*",

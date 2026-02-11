@@ -6,7 +6,7 @@ const showNoteRoute = express.Router()
 showNoteRoute.use(express.json())
 
 showNoteRoute.get('/', async(req, res) => {
-    const data = await db.showwNotes()
+    const data = await db.showNotes()
     res.status(200).send(data)
 })
 

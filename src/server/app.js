@@ -2,6 +2,9 @@ const express = require("express")
 require('dotenv').config()
 const showNoteRoute = require("../routes/showNotes")
 const newNoteRoute = require("../routes/newNote")
+const deleteNoteRoute = require("../routes/deleteNote")
+const searchNoteRoute = require("../routes/searchNote")
+const editNoteRoute = require("../routes/editNote")
 const db = require("../database")
 
 const app = express()
@@ -20,9 +23,17 @@ app.use(showNoteRoute)
 
 app.use(newNoteRoute)
 
+app.use(deleteNoteRoute)
+
+app.use(searchNoteRoute)
+
+app.use(editNoteRoute)
+
+
+
 app.get("/", async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
-    const infos = await db.showwNotes()
+    const infos = await db.showNotes()
     // if (infos.length) {
     //     res.status(200).send(infos)
     // } else {
