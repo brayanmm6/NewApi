@@ -5,6 +5,7 @@ const newNoteRoute = require("../routes/newNote")
 const deleteNoteRoute = require("../routes/deleteNote")
 const searchNoteRoute = require("../routes/searchNote")
 const editNoteRoute = require("../routes/editNote")
+const populateTableRoute = require("../routes/populateDb")
 const db = require("../database")
 
 const app = express()
@@ -28,6 +29,8 @@ app.use(deleteNoteRoute)
 app.use(searchNoteRoute)
 
 app.use(editNoteRoute)
+
+app.use(populateTableRoute)
 
 
 

@@ -2,7 +2,7 @@ require("dotenv").config()
 
 const connect = async () => {
     if ( global.connection ) {
-        return await global.connection.connect()
+        return global.connection.connect()
     }
 
     const { Pool }  = require("pg")
@@ -10,9 +10,9 @@ const connect = async () => {
     const pool = new Pool ({
         connectionString: process.env.CONNECTIONSTRING,
 
-        ssl: {
-            rejectUnauthorized: false
-        }
+        // ssl: {
+        //     rejectUnauthorized: false
+        // }
     })
     
     const client = await pool.connect()
@@ -310,4 +310,4 @@ const populateTable = async(title, content, image) => {
     console.log(res.rows)
 }
 
-module.exports = {connect, newNote, showNotes, createDb, editNote, deleteNote, addNote, searchNote} 
+module.exports = {connect, newNote, showNotes, createDb, editNote, deleteNote, addNote, searchNote, populateTable} 
